@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbf8dcdc-7a4b-4e50-8a16-1dc70876a7aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indice-Remissivo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Arvore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Hash.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LeitorArquivo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LeitorChave.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ListOcorrencia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NoArvore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NoOcorrencia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Palavra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeitorArquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeitorArquivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeitorChave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeitorChave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +67,7 @@
       <updated>1747596211251</updated>
       <workItem from="1747596212349" duration="19000" />
       <workItem from="1747596245638" duration="21000" />
-      <workItem from="1747596277970" duration="2411000" />
+      <workItem from="1747596277970" duration="3074000" />
     </task>
     <servers />
   </component>

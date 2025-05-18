@@ -10,7 +10,7 @@ public class LeitorArquivo {
 
             while ((linha = br.readLine()) != null) {
                 // Remove pontuações e quebra a linha em palavras
-                String[] palavras = linha.toLowerCase().split("[^a-zA-Z]+");
+                String[] palavras = linha.toLowerCase().split("[^a-zA-Z-]+");
 
                 for (String palavra : palavras) {
                     if (!palavra.isEmpty()) {

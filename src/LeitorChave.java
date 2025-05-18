@@ -12,7 +12,7 @@ public class LeitorChave {
         ) {
             String linha;
             while ((linha = br.readLine()) != null) {
-                String[] chaves = linha.toLowerCase().split("[^a-zA-Z]+");
+                String[] chaves = linha.toLowerCase().split("[^a-zA-Z-]+");
 
                 for (String chave : chaves) {
                     if (!chave.isEmpty()) {
