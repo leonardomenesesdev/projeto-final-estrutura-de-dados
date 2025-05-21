@@ -3,47 +3,51 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.text.Normalizer;
 
 public class LeitorChave {
+
     public static void gerarIndice(String caminhoChaves, String caminhoSaida, Hash tabela) {
+        final int MAX_RESULTADOS = 10000; // Limite de entradas (ajuste conforme necessário)
+        String[] resultados = new String[MAX_RESULTADOS];
+        int contador = 0;
+
         try (
                 BufferedReader br = new BufferedReader(new FileReader(caminhoChaves));
                 PrintWriter pw = new PrintWriter(new FileWriter(caminhoSaida))
         ) {
             String linha;
-            ArrayList<String> resultados = new ArrayList<>();
 
             while ((linha = br.readLine()) != null) {
-                String[] chaves = linha.toLowerCase().split("[^a-zA-Z-]+");
+                String[] chaves = linha.split("[^\\p{L}-]+"); // aceita acentos
 
-                for (String chave : chaves) {
-                    if (!chave.isEmpty()) {
-                        Palavra p = tabela.buscar(chave);
+                for (String chaveOriginal : chaves) {
+                    if (!chaveOriginal.isEmpty()) {
+                        String chaveNormalizada = removerPlural(removerAcentos(chaveOriginal).toLowerCase());
+                        Palavra p = tabela.buscar(chaveNormalizada);
                         if (p != null) {
-                            resultados.add(p.toString());
+                            resultados[contador++] = chaveOriginal + ": " + p.getOcorrencias(); // ou p.toString()
                         } else {
-                            resultados.add(chave + ": (não encontrada)");
+                            resultados[contador++] = chaveOriginal + ": (não encontrada)";
                         }
                     }
                 }
             }
 
-            // Ordenação alfabética manual (bubble sort)
-            for (int i = 0; i < resultados.size() - 1; i++) {
-                for (int j = 0; j < resultados.size() - 1 - i; j++) {
-                    if (resultados.get(j).compareTo(resultados.get(j + 1)) > 0) {
-                        // troca
-                        String temp = resultados.get(j);
-                        resultados.set(j, resultados.get(j + 1));
-                        resultados.set(j + 1, temp);
+            // Ordenação alfabética (bubble sort)
+            for (int i = 0; i < contador - 1; i++) {
+                for (int j = 0; j < contador - 1 - i; j++) {
+                    if (resultados[j].compareTo(resultados[j + 1]) > 0) {
+                        String temp = resultados[j];
+                        resultados[j] = resultados[j + 1];
+                        resultados[j + 1] = temp;
                     }
                 }
             }
 
-            // Escreve no arquivo em ordem alfabética
-            for (String resultado : resultados) {
-                pw.println(resultado);
+            // Escreve os resultados no arquivo
+            for (int i = 0; i < contador; i++) {
+                pw.println(resultados[i]);
             }
 
             System.out.println("Índice remissivo gerado em: " + caminhoSaida);
@@ -51,5 +55,16 @@ public class LeitorChave {
         } catch (IOException e) {
             System.out.println("Erro ao ler ou escrever arquivos: " + e.getMessage());
         }
+    }
+
+    private static String removerAcentos(String str) {
+        return Normalizer.normalize(str, Normalizer.Form.NFD)
+                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+    }
+    private static String removerPlural(String palavra) {
+        if (palavra.length() > 2 && palavra.endsWith("s") && !palavra.endsWith("ss")) {
+            return palavra.substring(0, palavra.length() - 1);
+        }
+        return palavra;
     }
 }
