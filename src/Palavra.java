@@ -18,13 +18,36 @@ public class Palavra implements Comparable<Palavra> {
     public ListOcorrencia getOcorrencias() {
         return ocorrencias;
     }
+    public boolean terminaemS(){
+        if(texto.endsWith("s")){
+            return true;
+        }
+        return false;
+    }
+
+    public void marcarComoNaoEncontrada() {
+        this.ocorrencias.limpar();
+    }
+
+    public void setOcorrencias(ListOcorrencia lista) {
+        this.ocorrencias = copiarLista(lista);
+    }
+
+    private ListOcorrencia copiarLista(ListOcorrencia original) {
+        ListOcorrencia nova = new ListOcorrencia();
+        NoOcorrencia atual = original.getPrimeiro();
+        while (atual != null) {
+            nova.inserir(atual.linha);
+            atual = atual.prox;
+        }
+        return nova;
+    }
 
     @Override
     public int compareTo(Palavra outra) {
         return this.texto.compareTo(outra.texto);
     }
 
-    // nao sei se utiliza pro arquivo txt mas pra teste ai é bom
     @Override
     public String toString() {
         return texto + ": " + ocorrencias.toString();

@@ -25,7 +25,7 @@ public class Hash {
         return null;
     }
 
-    // Imprime todo o índice em ordem alfabética (para depuração ou saída)
+    // Imprime to  o índice em ordem alfabética (para depuração ou saída)
     public void imprimirIndiceCompleto() {
         for (int i = 0; i < 26; i++) {
             tabela[i].imprimirEmOrdem();

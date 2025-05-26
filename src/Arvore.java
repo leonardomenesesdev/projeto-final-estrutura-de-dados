@@ -1,3 +1,5 @@
+import java.io.PrintWriter;
+
 public class Arvore {
     private NoArvore raiz;
 
@@ -59,16 +61,43 @@ public class Arvore {
         }
     }
 
-    // Gera uma lista de palavras em ordem alfabética
-    public void emOrdemParaLista(java.util.List<Palavra> lista) {
-        emOrdemParaListaRec(raiz, lista);
+    public void inserirResultado(Palavra resultado) {
+        raiz = inserirResultadoRec(raiz, resultado);
     }
 
-    private void emOrdemParaListaRec(NoArvore no, java.util.List<Palavra> lista) {
+    private NoArvore inserirResultadoRec(NoArvore no, Palavra resultado) {
+        if (no == null) {
+            return new NoArvore(resultado);
+        }
+
+        int comp = resultado.texto.compareTo(no.palavra.texto);
+        if (comp > 0) {
+            no.esquerda = inserirResultadoRec(no.esquerda, resultado);
+        } else if (comp < 0) {
+            no.direita = inserirResultadoRec(no.direita, resultado);
+        } else {
+            // evita duplicação
+        }
+
+        return no;
+    }
+    public void imprimirResultadosOrdenados(PrintWriter pw) {
+        imprimirResultadosRec(raiz, pw);
+    }
+
+    private void imprimirResultadosRec(NoArvore no, PrintWriter pw) {
         if (no != null) {
-            emOrdemParaListaRec(no.esquerda, lista);
-            lista.add(no.palavra);
-            emOrdemParaListaRec(no.direita, lista);
+            imprimirResultadosRec(no.esquerda, pw);
+
+            if (no.palavra.getOcorrencias() == null) {
+                pw.println(no.palavra.texto + ": (não encontrada)");
+            } else {
+                if (no.palavra.terminaemS() == false) {
+                    pw.println(no.palavra.texto + ": " + no.palavra.getOcorrencias());
+                }
+            }
+            imprimirResultadosRec(no.direita, pw);
         }
     }
+
 }
