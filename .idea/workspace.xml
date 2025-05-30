@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="dbf8dcdc-7a4b-4e50-8a16-1dc70876a7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeitorArquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeitorArquivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Arvore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Arvore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeitorChave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeitorChave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Palavra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Palavra.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +40,7 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ajustes&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Leo/ED-ndice-Remissivo-&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -73,6 +75,23 @@
       <workItem from="1747853117593" duration="1722000" />
       <workItem from="1747856331680" duration="456000" />
       <workItem from="1747857322742" duration="678000" />
+      <workItem from="1748284757221" duration="280000" />
+      <workItem from="1748285325988" duration="2595000" />
+      <workItem from="1748458031588" duration="1772000" />
+      <workItem from="1748459971838" duration="677000" />
+      <workItem from="1748460701330" duration="1333000" />
+      <workItem from="1748462365228" duration="746000" />
+      <workItem from="1748467622177" duration="657000" />
+      <workItem from="1748468521185" duration="1152000" />
+      <workItem from="1748559341945" duration="958000" />
+      <workItem from="1748560655675" duration="695000" />
+      <workItem from="1748561519553" duration="661000" />
+      <workItem from="1748562221976" duration="402000" />
+      <workItem from="1748562817989" duration="1002000" />
+      <workItem from="1748636853752" duration="1130000" />
+      <workItem from="1748638383363" duration="1076000" />
+      <workItem from="1748639585736" duration="307000" />
+      <workItem from="1748640122361" duration="366000" />
     </task>
     <servers />
   </component>

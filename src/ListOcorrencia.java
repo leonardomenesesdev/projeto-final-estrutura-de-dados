@@ -56,4 +56,16 @@ public class ListOcorrencia {
     public int getTamanho() {
         return tamanho;
     }
+    public void limpar() {
+        tamanho = 0;
+    }
+
+    public boolean isEmpty() {
+        return tamanho == 0;
+    }
+    public NoOcorrencia getPrimeiro() {
+        return primeiro;
+    }
+
+
 }

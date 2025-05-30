@@ -11,14 +11,15 @@ public class LeitorArquivo {
             int numeroLinha = 1;
 
             while ((linha = br.readLine()) != null) {
-                // Regex que aceita letras com acento (usar \p{L} = qualquer letra de qualquer idioma)
+                // aceita qlqr letra
                 String[] palavras = linha.split("[^\\p{L}-]+");
 
                 for (String palavraOriginal : palavras) {
                     if (!palavraOriginal.isEmpty()) {
                         String normalizada = removerAcentos(palavraOriginal).toLowerCase();
                         String chave = removerPlural(normalizada);
-                        tabela.inserir(chave, numeroLinha);
+                        Palavra chavePalavra = new Palavra(chave);
+                        tabela.inserir(chavePalavra, numeroLinha);
                     }
                 }
 
