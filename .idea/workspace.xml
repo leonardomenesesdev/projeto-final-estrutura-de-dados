@@ -8,8 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Arvore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Arvore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Hash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeitorArquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeitorArquivo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeitorChave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeitorChave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ListOcorrencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ListOcorrencia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Palavra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Palavra.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,23 +36,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "ajustes",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Leo/ED-ndice-Remissivo-",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Leo/Downloads/Indice-Remissivo/src/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ajustes&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Leo/ED-ndice-Remissivo-&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Leo/Downloads/Indice-Remissivo/src/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -77,7 +77,18 @@
       <workItem from="1747856331680" duration="456000" />
       <workItem from="1747857322742" duration="678000" />
       <workItem from="1748284757221" duration="280000" />
-      <workItem from="1748285325988" duration="2162000" />
+      <workItem from="1748285325988" duration="2595000" />
+      <workItem from="1748458031588" duration="1772000" />
+      <workItem from="1748459971838" duration="677000" />
+      <workItem from="1748460701330" duration="1333000" />
+      <workItem from="1748462365228" duration="746000" />
+      <workItem from="1748467622177" duration="657000" />
+      <workItem from="1748468521185" duration="1152000" />
+      <workItem from="1748559341945" duration="958000" />
+      <workItem from="1748560655675" duration="695000" />
+      <workItem from="1748561519553" duration="661000" />
+      <workItem from="1748562221976" duration="402000" />
+      <workItem from="1748562817989" duration="418000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,5 @@
 import java.io.PrintWriter;
+import java.text.Normalizer;
 
 public class Arvore {
     private NoArvore raiz;
@@ -7,39 +8,43 @@ public class Arvore {
         this.raiz = null;
     }
 
-    public void inserir(String texto, int linha) {
-        raiz = inserirRec(raiz, texto.toLowerCase(), linha);
+    public void inserir(Palavra palavra, int linha) {
+        raiz = inserirRec(raiz, palavra, linha);
     }
 
-    private NoArvore inserirRec(NoArvore no, String texto, int linha) {
+    private NoArvore inserirRec(NoArvore no, Palavra palavra, int linha) {
         if (no == null) {
-            Palavra novaPalavra = new Palavra(texto);
-            novaPalavra.adicionarOcorrencia(linha);
-            return new NoArvore(novaPalavra);
+            palavra.adicionarOcorrencia(linha);
+            return new NoArvore(palavra);
         }
 
-        int comp = texto.compareTo(no.palavra.texto);
+        String textoNovo = normalizar(palavra.texto);
+        String textoNo = normalizar(no.palavra.texto);
+
+        int comp = textoNovo.compareTo(textoNo);
 
         if (comp < 0) {
-            no.esquerda = inserirRec(no.esquerda, texto, linha);
+            no.esquerda = inserirRec(no.esquerda, palavra, linha);
         } else if (comp > 0) {
-            no.direita = inserirRec(no.direita, texto, linha);
+            no.direita = inserirRec(no.direita, palavra, linha);
         } else {
-            // Palavra já existe, só adiciona a ocorrência
             no.palavra.adicionarOcorrencia(linha);
         }
 
         return no;
     }
 
-    public Palavra buscar(String texto) {
-        return buscarRec(raiz, texto.toLowerCase());
+    public Palavra buscar(Palavra texto) {
+        return buscarRec(raiz, texto.texto);
     }
 
     private Palavra buscarRec(NoArvore no, String texto) {
         if (no == null) return null;
 
-        int comparacao = texto.compareTo(no.palavra.texto);
+        String textoNormalizado = normalizar(texto);
+        String noNormalizado = normalizar(no.palavra.texto);
+
+        int comparacao = textoNormalizado.compareTo(noNormalizado);
         if (comparacao < 0) {
             return buscarRec(no.esquerda, texto);
         } else if (comparacao > 0) {
@@ -56,7 +61,7 @@ public class Arvore {
     private void imprimirRec(NoArvore no) {
         if (no != null) {
             imprimirRec(no.esquerda);
-            System.out.println(no.palavra.texto + ": " + no.palavra.ocorrencias);
+            System.out.println(no.palavra.texto + ": " + no.palavra.getOcorrencias());
             imprimirRec(no.direita);
         }
     }
@@ -70,17 +75,21 @@ public class Arvore {
             return new NoArvore(resultado);
         }
 
-        int comp = resultado.texto.compareTo(no.palavra.texto);
-        if (comp > 0) {
+        String novo = normalizar(resultado.texto);
+        String atual = normalizar(no.palavra.texto);
+
+        int comp = novo.compareTo(atual);
+        if (comp < 0) {
             no.esquerda = inserirResultadoRec(no.esquerda, resultado);
-        } else if (comp < 0) {
+        } else if (comp > 0) {
             no.direita = inserirResultadoRec(no.direita, resultado);
         } else {
-            // evita duplicação
+            // já existe, ignora
         }
 
         return no;
     }
+
     public void imprimirResultadosOrdenados(PrintWriter pw) {
         imprimirResultadosRec(raiz, pw);
     }
@@ -89,15 +98,19 @@ public class Arvore {
         if (no != null) {
             imprimirResultadosRec(no.esquerda, pw);
 
-            if (no.palavra.getOcorrencias() == null) {
+            if (no.palavra.getOcorrencias() == null || no.palavra.getOcorrencias().isEmpty()) {
                 pw.println(no.palavra.texto + ": (não encontrada)");
             } else {
-                if (no.palavra.terminaemS() == false) {
-                    pw.println(no.palavra.texto + ": " + no.palavra.getOcorrencias());
-                }
+                pw.println(no.palavra.texto + ": " + no.palavra.getOcorrencias());
             }
+
             imprimirResultadosRec(no.direita, pw);
         }
     }
 
+    // Método auxiliar para remover acentos
+    private String normalizar(String texto) {
+        return Normalizer.normalize(texto.toLowerCase(), Normalizer.Form.NFD)
+                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+    }
 }

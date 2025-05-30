@@ -1,7 +1,7 @@
 public class Palavra implements Comparable<Palavra> {
-    String texto;
-    ListOcorrencia ocorrencias;
-
+    String texto; //atributo palavra
+    ListOcorrencia ocorrencias; //atributo list
+    private boolean impressa = false;
     public Palavra(String texto) {
         this.texto = texto;
         this.ocorrencias = new ListOcorrencia();
@@ -14,7 +14,9 @@ public class Palavra implements Comparable<Palavra> {
     public String getTexto() {
         return texto;
     }
-
+    public void marcarComoImpressa() {
+        this.impressa = true;
+    }
     public ListOcorrencia getOcorrencias() {
         return ocorrencias;
     }
@@ -41,6 +43,14 @@ public class Palavra implements Comparable<Palavra> {
             atual = atual.prox;
         }
         return nova;
+    }
+    public boolean foiImpressa() {
+        return impressa;
+    }
+    //adicionei pra conseguir imprimir palavras com acento com a ordenação normal
+    public String textoNormalizado() {
+        return java.text.Normalizer.normalize(this.texto.toLowerCase(), java.text.Normalizer.Form.NFD)
+                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
     }
 
     @Override
