@@ -108,7 +108,7 @@ public class Arvore {
         }
     }
 
-    // Método auxiliar para remover acentos
+    // Metodo auxiliar para remover acentos
     private String normalizar(String texto) {
         return Normalizer.normalize(texto.toLowerCase(), Normalizer.Form.NFD)
                 .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");

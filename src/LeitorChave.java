@@ -16,18 +16,26 @@ public class LeitorChave {
             String linha;
 
             while ((linha = br.readLine()) != null) {
-                String[] chaves = linha.split("[^\\p{L}-]+"); // aceita acentos
+                String[] chavesOriginais = linha.split("[^\\p{L}-]+");
+                int n = chavesOriginais.length;
 
-                for (String chaveOriginal : chaves) {
-                    if (!chaveOriginal.isEmpty()) {
+                String[] chavesNormalizadas = new String[n];
+                for (int i = 0; i < n; i++) {
+                    chavesNormalizadas[i] = removerPlural(removerAcentos(chavesOriginais[i]).toLowerCase());
+                }
+
+                // Ordena com base nas versões normalizadas
+                ordenaChaves(chavesOriginais, chavesNormalizadas, n);
+                for (String chaveOriginal : chavesOriginais) {
+                    if (!chaveOriginal.isEmpty() && !chaveOriginal.endsWith("s")) {
                         String chaveNormalizada = removerPlural(removerAcentos(chaveOriginal).toLowerCase());
                         Palavra palavraBusca = new Palavra(chaveNormalizada);
                         Palavra encontrada = tabela.buscar(palavraBusca);
-                        if (encontrada != null && !encontrada.foiImpressa()) {
+                        if (encontrada != null  && !encontrada.isPlural()) {
                             pw.println(chaveOriginal + ": " + encontrada.getOcorrencias());
-                            encontrada.marcarComoImpressa();
+                        } else {
+                            pw.println(chaveOriginal + ": não encontrada");
                         }
-
                     }
                 }
             }
@@ -36,6 +44,18 @@ public class LeitorChave {
 
         } catch (IOException e) {
             System.out.println("Erro ao ler ou escrever arquivos: " + e.getMessage());
+        }
+    }
+
+    private static void ordenaChaves(String[] chaves, int length) {
+        for(int i = 0; i < length-1; i++){
+            for (int j = 0; j < length-i-1; j++){
+                if(chaves[j].compareTo(chaves[j+1]) > 0){
+                    String temp = chaves[j];
+                    chaves[j] = chaves[j+1];
+                    chaves[j+1] = temp;
+                }
+            }
         }
     }
 
@@ -50,4 +70,22 @@ public class LeitorChave {
         }
         return palavra;
     }
+    private static void ordenaChaves(String[] originais, String[] normalizadas, int length) {
+        for (int i = 0; i < length - 1; i++) {
+            for (int j = 0; j < length - i - 1; j++) {
+                if (normalizadas[j].compareTo(normalizadas[j + 1]) > 0) {
+                    // Troca nas normalizadas
+                    String tempNorm = normalizadas[j];
+                    normalizadas[j] = normalizadas[j + 1];
+                    normalizadas[j + 1] = tempNorm;
+
+                    // Troca correspondente nos originais
+                    String tempOrig = originais[j];
+                    originais[j] = originais[j + 1];
+                    originais[j + 1] = tempOrig;
+                }
+            }
+        }
+    }
+
 }

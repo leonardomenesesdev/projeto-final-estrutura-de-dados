@@ -7,9 +7,8 @@
     <list default="true" id="dbf8dcdc-7a4b-4e50-8a16-1dc70876a7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Arvore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Arvore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeitorArquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeitorArquivo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeitorChave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeitorChave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Palavra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Palavra.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +87,11 @@
       <workItem from="1748560655675" duration="695000" />
       <workItem from="1748561519553" duration="661000" />
       <workItem from="1748562221976" duration="402000" />
-      <workItem from="1748562817989" duration="418000" />
+      <workItem from="1748562817989" duration="1002000" />
+      <workItem from="1748636853752" duration="1130000" />
+      <workItem from="1748638383363" duration="1076000" />
+      <workItem from="1748639585736" duration="307000" />
+      <workItem from="1748640122361" duration="366000" />
     </task>
     <servers />
   </component>
