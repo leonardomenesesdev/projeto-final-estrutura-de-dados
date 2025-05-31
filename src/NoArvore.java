@@ -1,6 +1,7 @@
 public class NoArvore {
     Palavra palavra;
-    NoArvore esquerda, direita;
+    NoArvore esquerda;
+    NoArvore direita;
 
     public NoArvore(Palavra palavra) {
         this.palavra = palavra;
